@@ -1,0 +1,55 @@
+{
+  "posts": [
+    {
+      "id": 5,
+      "categoryName": "Home Appliances"
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "categoryName": "Home electronics",
+      "id": 10
+    },
+    {
+      "categoryName": "bags",
+      "id": 11
+    }
+  ],
+  "products": [
+    {
+      "productName": "Iphone",
+      "price": 2,
+      "description": "This is a good mobile",
+      "categories": "Mobile",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "productName": "samsung",
+      "price": 35667,
+      "description": "128 gb ram",
+      "categories": "Mobile"
+      
+    },
+    {
+      "productName": null,
+      "price": null,
+      "description": null,
+      "categories": null,
+      "id": 3
+    }
+  ],
+  "signupusers": {
+    "fullname": "madhav",
+    "email": "madhav@gmail.com",
+    "password": "madhav123",
+    "mobile": 8372937823
+  }
+}

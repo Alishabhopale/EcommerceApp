@@ -1,0 +1,97 @@
+
+<div class="container">
+  <a routerLink="/home">Home</a><br>
+  <a routerLink="/managecategory">ManageCategory</a> <br>
+</div>
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Product
+    </button>  
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Product Detail</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label form="productName" class="form-label">Product Name</label>
+                  <input type="text" formControlName="productName" name="productName" class="form-control"
+                    id="inputProductName">         
+                </div>
+                <div class="mb-3">
+                    <label form="price" class="form-label">Price</label>
+                    <input type="number" formControlName="price" name="price" class="form-control"
+                      id="inputPrice">         
+                  </div>
+                  <div class="mb-3">
+                    <label form="description" class="form-label">Description</label>
+                    <input type="text" formControlName="description" name="description" class="form-control"
+                      id="inputDescription">         
+                  </div>
+                  <div class="btn-group">
+                    <label>Location : </label>
+  
+                    <select formControlName="categories" name="categories">
+                      <option disabled>Choose Value</option>
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+  
+                        Default
+  
+                        <span class="caret"></span>
+  
+                      </button>
+                      <option value="">Choose Category</option>
+                      <option *ngFor="let category of categories">
+                        {{category.value}}
+                      </option>
+                    </select>
+                    <div *ngIf="isValidated" class="alert alert-danger mt-2">
+                      Please choose some value
+                    </div>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" (click)="postProductDetails()" class="btn btn-primary">
+                Add
+              </button>
+              <button type="button" (click)="updateProductDetails()" 
+              class="btn btn-primary">Update</button>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <table class="table table-dark table-striped mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+      
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of productData">
+            <td>{{prod.image}}</td>
+            <td>{{prod.id}}</td>
+            <td>{{prod.productName}}</td>
+            <td>{{prod.price}}</td>
+            <td>{{prod.description}}</td>
+            <td>{{prod.categories}}</td>
+            <td>
+              <button type="button" (click)="onEdit(prod)" type="button" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" class="btn btn-primary">Edit</button>
+              <button type="button" (click)="deleteProductDetails(prod)" class="btn btn-danger mx-3">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
